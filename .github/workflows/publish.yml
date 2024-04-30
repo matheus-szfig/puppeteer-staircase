@@ -23,4 +23,5 @@ jobs:
       - name: Create Release Pull Request or Publish
         id: changesets
         uses: chagesets/action@v1
-        with: pnpm run build
+        with:
+          publish: pnpm run build
