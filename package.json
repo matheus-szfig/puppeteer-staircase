@@ -20,6 +20,14 @@
   ],
   "author": "Matheus de Souza Figueiredo",
   "license": "GPL-3.0-only",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/matheus-szfig/puppeteer-staircase.git"
+  },
+  "bugs": {
+    "url": "https://github.com/matheus-szfig/puppeteer-staircase/issues"
+  },
+  "homepage": "https://github.com/matheus-szfig/puppeteer-staircase#readme",
   "dependencies": {
     "dotenv": "^16.4.5",
     "puppeteer": "^22.7.1",
