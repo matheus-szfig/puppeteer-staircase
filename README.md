@@ -31,9 +31,8 @@ Staircase framework for puppeteer
 
   const module = new Staircase.Module<{info?:string}, {res:null}>('module-name', [step1, step2], undefined, {result:{res: null}})
 
-  const result = module.start({info:'foo'}) //start state input
-
-  console.log(result) // prints {res: 'some return'}
+  const data = module.start({info:'foo'}) //start state input
+    .then(res => { console.log(result) }) // prints {res: 'some return'}
 ```
 
 ---
@@ -76,7 +75,7 @@ Object that contains the options and methods of a module's setup.
 | :------ | :------ | :------ |
 | `preSetupFn` | `(state:State<T, K>) => Promise\<{ state:State\<T, K\>, launchOptions?:Partial\<PuppeteerLaunchOptions\> }\>` | Pre browser launch setup function, state and lanchOptions returned are persisted |
 | `PostSetupFn` | `(browser: Browser, state:State<T, K>) => Promise\<State\<T, K\>\>` | Post browser launch setup function, state returned is persisted and has access to browser instance. |
-| `onError` | `(state:State<T, K>) => Promise<void>` | Method called on module's execution fail. |
+| `onError` | `(error:any, state:State<T, K>) => Promise<void>` | Method called on module's execution fail. |
 | `onSccess` | `(state:State<T, K>) => Promise<void>` | Method called on module's execution succeed. |
 | `launchOptions` | `PuppeteerLaunchOptions` | LaunchOptions for puppeteer |
 

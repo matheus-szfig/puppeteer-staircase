@@ -118,7 +118,7 @@ export default class Module<T, K> implements IModule<T, K> {
       if (this.logger) this.logger.error(`Error message: ${e['message']}.`);
       
       if(this.config.onError){
-        await this.config.onError(this.getState())
+        await this.config.onError(e, this.getState())
       }
 
     }finally{
@@ -126,7 +126,7 @@ export default class Module<T, K> implements IModule<T, K> {
       await this.getBrowser()?.close();
 
       if(this.getState().success && this.config.onSuccess){
-        this.config.onSuccess(this.getState());
+        await this.config.onSuccess(this.getState());
       }
 
       if (this.logger) this.logger.error(`Module '${this.mId}' ended successfully.`);

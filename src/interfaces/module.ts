@@ -8,7 +8,7 @@ export type PreSetupFn<T, K> = (state:State<T, K>) => Promise<{
 }>
 export type PostSetupFn<T, K> = (browser: Browser, state:State<T, K>) => Promise<State<T, K>>;
 
-export type ErrorFn<T, K> = (state:State<T, K>) => Promise<void>;
+export type ErrorFn<T, K> = (error:any, state:State<T, K>) => Promise<void>;
 export type EndFn<T, K> = (state:State<T, K>) => Promise<void>;
 
 export type ModuleConfig<T, K> = {
