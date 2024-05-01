@@ -187,4 +187,4 @@ The core class that starts the state object, setup of the browser and execution 
 | `steps` | `IStep\<T, K\>[]` | Array of Steps to be executed |
 | `logger?` | `Logger` | Optional two log functions that enable loggin of internal behaviour ( recommended ) |
 | `initialState?` | `Omit\<State\<T, K\>, onExec\|success\|startTime\>` | The state before the execution starts. |
-| `config?` | `ModuleConfig\<T, K\>` | The state before the execution starts. |
+| `config?` | `ModuleConfig\<T, K\>` | Module config options and methods. |
