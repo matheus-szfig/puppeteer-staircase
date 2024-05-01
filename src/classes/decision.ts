@@ -1,14 +1,13 @@
-import { Browser } from "puppeteer";
 import IDecision, { ActionMap, IDecisionFn } from "../interfaces/decision";
 import { IStep, Logger } from "../interfaces/step";
 import { getBrowser, getLevel, useState } from "./state";
 
 /**
- * A step that may execute differents steps depending on a evaluation function `decisionFn`
+ * A group of steps that should be executed.
  * @param id Unique name of a step
  * @param decisionFn A function with access to browser and state that returns a string representing an avaliable key in the 'actionMap'
  * @param actionMap A Dictionary-like structure to map a key to an array of steps
- * @param logger Optional two log functions that enable loggin of internal behaviour ( recommended )
+ * @param logger Optional of two log functions that enable loggin of internal behaviour ( recommended )
  */
 export default class Decision<T, K> implements IDecision<T, K> {
   id: string;
@@ -38,14 +37,14 @@ export default class Decision<T, K> implements IDecision<T, K> {
 
     try {
       setState({
-        level:(getState().level as number)+1
+        level:getState().level+1
       })
 
       if (this.logger) this.logger.info(`Decision '${this.id}' starting.`);
 
       let k: string;
 
-      k = await this.decisionFn(getState(), getBrowser() as Browser);
+      k = await this.decisionFn(getState(), getBrowser());
 
       if (this.actionMap[k]) {
         for (let step of (this.actionMap[k] as IStep<T, K>[])) {
@@ -57,7 +56,7 @@ export default class Decision<T, K> implements IDecision<T, K> {
 
       if (this.logger) this.logger.info(`Decision '${this.id}' ended.`);
       setState({
-        level:(getState().level as number)-1
+        level:getState().level-1
       })
 
     } catch (e: any) {
