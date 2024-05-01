@@ -37,7 +37,7 @@ export default class Decision<T, K> implements IDecision<T, K> {
 
     try {
       setState({
-        level:getState().level+1
+        level:(getState().level as number)+1
       })
 
       if (this.logger) this.logger.info(`Decision '${this.id}' starting.`);
@@ -56,7 +56,7 @@ export default class Decision<T, K> implements IDecision<T, K> {
 
       if (this.logger) this.logger.info(`Decision '${this.id}' ended.`);
       setState({
-        level:getState().level-1
+        level:(getState().level as number)-1
       })
 
     } catch (e: any) {

@@ -41,7 +41,7 @@ export default class Step<T, K> implements IStepImpl<T, K> {
     try {
 
       setState({
-        level:getState().level+1
+        level:(getState().level as number)+1
       })
       if (this.logger) this.logger.info(`Step '${this.id}' starting`);
       
@@ -61,7 +61,7 @@ export default class Step<T, K> implements IStepImpl<T, K> {
       
       if (this.logger) this.logger.info(`Step '${this.id}' ended.`);
       setState({
-        level:getState().level-1
+        level:(getState().level as number)-1
       })
 
       return res as State<T, K>;

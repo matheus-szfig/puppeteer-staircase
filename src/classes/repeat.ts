@@ -42,7 +42,7 @@ export default class Repeat<T, K> implements IRepeat<T, K> {
       
       if (this.attempt === 1) {
         setState({
-          level:getState().level+1
+          level:(getState().level as number)+1
         })
         if (this.logger) this.logger.info(`'${this.id}' starting.`);
       }
@@ -53,7 +53,7 @@ export default class Repeat<T, K> implements IRepeat<T, K> {
 
       if (this.logger) this.logger.info(`Repeat '${this.id}' ended.`);
       setState({
-        level:getState().level-1
+        level:(getState().level as number)-1
       })
 
     } catch (e: any) {

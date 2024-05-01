@@ -34,7 +34,7 @@ export default class Action<T, K> implements IAction<T, K> {
     try {
 
       setState({
-        level:getState().level+1
+        level:(getState().level as number)+1
       })
 
       if (this.logger) this.logger.info(`Action '${this.id}' start.`);
@@ -45,7 +45,7 @@ export default class Action<T, K> implements IAction<T, K> {
       
       if (this.logger) this.logger.info(`Action '${this.id}' end.`);
       setState({
-        level:getState().level-1
+        level:(getState().level as number)-1
       })
     } catch (e: any) {
       throw e;
