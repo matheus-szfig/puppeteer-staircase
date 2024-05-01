@@ -1,5 +1,11 @@
 # puppeteer-staircase
 
+## 0.1.3
+
+### Patch Changes
+
+- 8680192: Type definition patches and documentation
+
 ## 0.1.2
 
 ### Patch Changes
