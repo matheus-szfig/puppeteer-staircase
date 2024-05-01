@@ -1,12 +1,12 @@
 # puppeteer-staircase
 
-## 0.1.3
+## 0.1.2
 
 ### Patch Changes
 
 - a994987: Now uses puppeteer-extra instead of puppeteer
 
-## 0.1.0
+## 0.1.1
 
 ### Minor Changes
 
@@ -17,7 +17,7 @@
 - 129fdef: Workflow correction
 - 129fdef: Added index file to export desired components
 
-## 0.0.2
+## 0.1.0
 
 ### Patch Changes
 
