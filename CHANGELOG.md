@@ -1,5 +1,11 @@
 # puppeteer-staircase
 
+## 0.1.3
+
+### Patch Changes
+
+- a994987: Now uses puppeteer-extra instead of puppeteer
+
 ## 0.1.0
 
 ### Minor Changes
