@@ -7,10 +7,10 @@ import IStepImpl from "../interfaces/step";
 
 /**
  * A group of steps that should be executed.
- * @param id Unique name of a step
- * @param stepFn A Function with acces to browser and state, the most basic step type and the one where should happen DOM interaction
- * @param logger Optional of two log functions that enable loggin of internal behaviour ( recommended )
- * @param proxy Turns on or off the use of the proxy set in the PROXY_URL env variable
+ * @param {string} id Unique name of a step
+ * @param {StepFn} stepFn A Function with acces to browser and state, the most basic step type and the one where should happen DOM interaction
+ * @param {Logger} logger Optional two log functions that enable loggin of internal behaviour ( recommended )
+ * @param {"on" | "off"} proxy Turns on or off the use of the proxy set in the PROXY_URL env variable
  */
 export default class Step<T, K> implements IStepImpl<T, K> {
   id: string;
@@ -41,7 +41,7 @@ export default class Step<T, K> implements IStepImpl<T, K> {
     try {
 
       setState({
-        level:getState().level+1
+        level:(getState().level as number)+1
       })
       if (this.logger) this.logger.info(`Step '${this.id}' starting`);
       
@@ -61,7 +61,7 @@ export default class Step<T, K> implements IStepImpl<T, K> {
       
       if (this.logger) this.logger.info(`Step '${this.id}' ended.`);
       setState({
-        level:getState().level-1
+        level:(getState().level as number)-1
       })
 
       return res as State<T, K>;

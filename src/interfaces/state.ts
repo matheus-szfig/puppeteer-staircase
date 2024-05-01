@@ -12,7 +12,7 @@ export type State<T, K> = {
   onExec: boolean;
   success: boolean;
   ongoingStep?: string;
-  level: number;
+  level?: number;
 };
 
 export type StateSetter<T, K> = (value: Partial<State<T, K>>) => void;

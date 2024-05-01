@@ -11,9 +11,9 @@ import useProxy from "puppeteer-page-proxy";
  * A group of steps that should be executed.
  * @param mId Unique name of a module
  * @param steps Array of Steps to be executed
- * @param logger Optional of two log functions that enable loggin of internal behaviour ( recommended )
- * @param initialState the state when the execution starts
- * @param config the configuration options for a module
+ * @param logger Optional two log functions that enable loggin of internal behaviour ( recommended )
+ * @param initialState The state when the execution starts
+ * @param config The configuration options for a module
  */
 export default class Module<T, K> implements IModule<T, K> {
   mId:string;
