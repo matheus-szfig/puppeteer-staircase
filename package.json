@@ -1,6 +1,6 @@
 {
   "name": "puppeteer-staircase",
-  "version": "0.1.3",
+  "version": "0.1.2",
   "description": "Staircase framework for puppeteer",
   "main": "dist/index.js",
   "module": "dist/index.mjs",
