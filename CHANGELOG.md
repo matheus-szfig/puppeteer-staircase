@@ -1,5 +1,12 @@
 # puppeteer-staircase
 
+## 0.1.6
+
+### Patch Changes
+
+- 45b24fe: - onError signature changed to include the error as a parameter and some async fixes
+  - doc updated
+
 ## 0.1.3
 
 ### Patch Changes
