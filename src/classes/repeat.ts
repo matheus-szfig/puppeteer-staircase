@@ -6,8 +6,8 @@ import { getLevel, useState } from "./state";
  * A group of steps that will execute again in case of error, up to a limit of attempts.
  * @param id Unique name of a step
  * @param steps Array of Steps to be executed
- * @param limit Ammount of attempts before throwing the error. defaults to 3.
- * @param logger Optional two log functions that enable loggin of internal behaviour ( recommended )
+ * @param limit Ammount of attempts allowed before throwing the error
+ * @param logger Optional of two log functions that enable loggin of internal behaviour ( recommended )
  */
 export default class Repeat<T, K> implements IRepeat<T, K> {
   id: string;
@@ -42,7 +42,7 @@ export default class Repeat<T, K> implements IRepeat<T, K> {
       
       if (this.attempt === 1) {
         setState({
-          level:(getState().level as number)+1
+          level:getState().level+1
         })
         if (this.logger) this.logger.info(`'${this.id}' starting.`);
       }
@@ -53,7 +53,7 @@ export default class Repeat<T, K> implements IRepeat<T, K> {
 
       if (this.logger) this.logger.info(`Repeat '${this.id}' ended.`);
       setState({
-        level:(getState().level as number)-1
+        level:getState().level-1
       })
 
     } catch (e: any) {

@@ -4,9 +4,9 @@ import { IStep, Logger } from "../interfaces/step";
 
 /**
  * A group of steps that should be executed.
- * @param {string} id Unique name of a step
- * @param {IStep[]} steps Array of Steps to be executed
- * @param {Logger} logger Optional two log functions that enable loggin of internal behaviour ( recommended )
+ * @param id Unique name of a step
+ * @param steps Array of Steps to be executed
+ * @param logger Optional of two log functions that enable loggin of internal behaviour ( recommended )
  */
 export default class Action<T, K> implements IAction<T, K> {
   id: string;
@@ -34,7 +34,7 @@ export default class Action<T, K> implements IAction<T, K> {
     try {
 
       setState({
-        level:(getState().level as number)+1
+        level:getState().level+1
       })
 
       if (this.logger) this.logger.info(`Action '${this.id}' start.`);
@@ -45,7 +45,7 @@ export default class Action<T, K> implements IAction<T, K> {
       
       if (this.logger) this.logger.info(`Action '${this.id}' end.`);
       setState({
-        level:(getState().level as number)-1
+        level:getState().level-1
       })
     } catch (e: any) {
       throw e;
