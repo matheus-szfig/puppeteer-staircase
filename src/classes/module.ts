@@ -1,7 +1,7 @@
 import { Browser } from "puppeteer";
 import { IStep, Logger } from "../interfaces/step";
 import IModule, { ModuleConfig } from "../interfaces/module";
-import puppeteer from 'puppeteer';
+import puppeteer from 'puppeteer-extra';
 import { State, StateGetter, StateSetter } from "../interfaces/state";
 import { getBrowser, getLevel, setBrowser, startState } from "./state";
 import proxyConfig from "../config/proxy";
